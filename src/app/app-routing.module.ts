@@ -95,7 +95,7 @@ const routes: Routes = [
       description: "Turn username and password into basic auth token or vice versa",
       externalDataProcessor: []
     }
-  }*/,
+  },
   {
     path: 'bcrypt',
     component: BcryptComponent,
@@ -107,7 +107,7 @@ const routes: Routes = [
       description: "Encrypt strings using bcrypt algorithm and check hashes",
       externalDataProcessor: []
     }
-  }
+  }*/
 ];
 
 @NgModule({
