@@ -1,0 +1,30 @@
+<tec-tool-head></tec-tool-head>
+<div>
+  <form [formGroup]="form">
+    <div class="form-group mt-5">
+      <label for="dnsTypeInput"><b>DNS Abfrageart</b></label>
+      <select class="form-control" id="dnsTypeInput" formControlName="dnsType" (change)="selectionChange($event.target)">
+        <option value="1">A</option>
+        <option value="28">AAAA</option>
+        <option value="33">SRV</option>
+        <option value="15">MX</option>
+        <option value="16">TXT</option>
+        <option value="12">PTR</option>
+      </select>
+    </div>
+    <div class="form-group mt-1">
+      <label for="dnsHost"><b>Zielhost</b></label>
+      <input type="text" class="form-control"  id="dnsHost" placeholder="example.tec.tools" formControlName="dnsHost">
+      <div class="invalid-feedback">
+        Du musst einen Zielnamen (subdomain.tec.tools) angeben.
+      </div>
+    </div>
+    <button class="btn btn-secondary" (click)="submitRequest()">
+      <span *ngIf="!loading">Senden</span>
+    </button>
+  </form>
+</div>
+<div class="mt-5" *ngIf="data">
+  <h4 class="hea">JSON Antwort</h4>
+  <tec-code-json [json]="data"></tec-code-json>
+</div>

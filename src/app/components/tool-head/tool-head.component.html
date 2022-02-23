@@ -1,0 +1,45 @@
+<div class="mt-10 md:px-3 pb-3 border-b border-gray grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3">
+  <div class="flex items-center">
+    <i-feather [name]="data.icon" class="text-secondary mt-1 icon-lg"></i-feather>
+    <div class="ml-4">
+      <div class="text-2xl font-medium text-primary/90">
+        {{data.title}}
+      </div>
+      <div class="text-primary/50 text-sm">
+        {{data.description}}
+      </div>
+    </div>
+  </div>
+  <div class="md:ml-auto">
+    <div
+      class="text-xs bg-gray-200/30 w-full lg:w-fit xl:m-auto py-2 px-5 rounded flex items-center"
+      *ngIf="data.externalDataProcessors && data.externalDataProcessors.length > 0; else noExternalProcessors;"
+    >
+      <div class="mr-4">
+        <i-feather class="text-orange-400/80 icon-md" name="upload-cloud"></i-feather>
+      </div>
+      <div class="text-primary/50 py-2">
+        This tool will process data using following external services:
+        <div class="my-1 ml-1">
+          <span *ngFor="let ep of data.externalDataProcessors" class="external-processor mr-2">
+            <a href="{{ep.url}}">{{ep.name}}</a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <ng-template #noExternalProcessors>
+      <div class="text-xs bg-gray-200/30 w-full md:w-fit xl:m-auto py-2 px-4 rounded flex items-center">
+        <div class="mr-3">
+          <i-feather class="text-lime-400/90 mt-0.5 icon-md" name="cloud-off"></i-feather>
+        </div>
+        <div class="text-primary/50">
+          This tool works locally. No data will be sent to any server.
+        </div>
+      </div>
+    </ng-template>
+  </div>
+  <div class="xl:text-right text-xs md:text-sm">
+    <span class="border border-secondary rounded px-2 py-1 font-medium text-secondary">{{data.category}}</span>
+    <span class="border border-primary/50 rounded px-2 py-1 text-primary/50 ml-1 " *ngFor="let tag of data.tags">{{tag}}</span>
+  </div>
+</div>

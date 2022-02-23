@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+html, body, div, p
+  box-sizing: border-box
+  color: theme("colors.primary")
+
+.icon-lg
+  width: 3em !important
+  height: 3em !important
+.icon-md
+  width: 2em !important
+  height: 2em !important
+
+i-feather
+  width: 1em !important
+  height: 1em !important
+
+a
+  text-decoration: none
+  white-space: nowrap
+  color: theme("colors.primary")
+  border-bottom: 1px dotted theme("colors.primary")
+  &:hover
+    border-bottom: 1px dotted rgba(black, 0)
+    color: theme("colors.secondary")
+    &:before
+      background-color: theme("colors.secondary")
+  &:before
+    content: ""
+    display: inline-block
+    width: 0.85em
+    height: 0.85em
+    margin-right: 0.125em
+    mask-image: url("assets/external-link.svg")
+    mask-size: 0.85em 0.85em
+    mask-repeat: no-repeat
+    background-color: theme("colors.primary")

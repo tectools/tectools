@@ -1,0 +1,12 @@
+<div *ngIf="generateResult != undefined; else error;">
+  <button *ngIf="showRegenerateButton" (click)="val = generateResult()">Regenerate</button>
+  <button *ngIf="showCopyToClipboardButton" class="ml-2" (click)="copyToClipboard()"><i-feather name="clipboard"></i-feather></button>
+
+  <div class="mt-2">
+    <textarea [value]="val" readonly [rows]="rows"></textarea>
+  </div>
+</div>
+<ng-template #error>
+  No Method Defined
+</ng-template>
+
