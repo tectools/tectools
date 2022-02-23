@@ -1,7 +1,7 @@
 <tec-tool-head></tec-tool-head>
 <div>
   <form [formGroup]="form">
-    <div class="form-group mt-5">
+    <div class="form-group">
       <label for="dnsTypeInput"><b>DNS Abfrageart</b></label>
       <select class="form-control" id="dnsTypeInput" formControlName="dnsType" (change)="selectionChange($event.target)">
         <option value="1">A</option>
@@ -24,7 +24,7 @@
     </button>
   </form>
 </div>
-<div class="mt-5" *ngIf="data">
+<div *ngIf="data">
   <h4 class="hea">JSON Antwort</h4>
   <tec-code-json [json]="data"></tec-code-json>
 </div>

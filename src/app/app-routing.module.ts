@@ -7,12 +7,21 @@ import {RdnsComponent} from "./tools/rdns/rdns.component";
 import {Base64Component} from "./tools/base64/base64.component";
 import {BasicauthComponent} from "./tools/basicauth/basicauth.component";
 import {URLEncodeComponent} from "./tools/urlencode/urlencode.component";
-import {BcryptComponent} from "./tools/bcrypt/bcrypt.component";
+import {ChangelogComponent} from "./pages/changelog/changelog.component";
+import {ContributeComponent} from "./pages/contribute/contribute.component";
 
 const routes: Routes = [
   {
     path: '',
     component: DashboardComponent
+  },
+  {
+    path: 'changelog',
+    component: ChangelogComponent
+  },
+  {
+    path: 'contribute',
+    component: ContributeComponent
   },
   {
     path: 'uuid',
@@ -25,7 +34,7 @@ const routes: Routes = [
       description: "Generate random UUIDs",
       externalDataProcessor: []
     }
-  },/*
+  },
   {
     path: 'dns',
     component: DnsComponent,
@@ -59,7 +68,7 @@ const routes: Routes = [
         },
       ],
     }
-  },*/
+  },
   {
     path: 'base64',
     component: Base64Component,
@@ -83,7 +92,7 @@ const routes: Routes = [
       description: "Encode or decode uri strings",
       externalDataProcessor: []
     }
-  }/*,
+  },
   {
     path: 'basicauth',
     component: BasicauthComponent,
@@ -95,19 +104,7 @@ const routes: Routes = [
       description: "Turn username and password into basic auth token or vice versa",
       externalDataProcessor: []
     }
-  },
-  {
-    path: 'bcrypt',
-    component: BcryptComponent,
-    data: {
-      title: "Bcrypt",
-      category: "Cryptography",
-      tags: ["Bcrypt", "encryption"],
-      icon: "shield",
-      description: "Encrypt strings using bcrypt algorithm and check hashes",
-      externalDataProcessor: []
-    }
-  }*/
+  }
 ];
 
 @NgModule({

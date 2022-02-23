@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BcryptComponent } from './bcrypt.component';
+import { ContributeComponent } from './contribute.component';
 
-describe('BcryptComponent', () => {
-  let component: BcryptComponent;
-  let fixture: ComponentFixture<BcryptComponent>;
+describe('ContributeComponent', () => {
+  let component: ContributeComponent;
+  let fixture: ComponentFixture<ContributeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BcryptComponent ]
+      declarations: [ ContributeComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BcryptComponent);
+    fixture = TestBed.createComponent(ContributeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

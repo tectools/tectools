@@ -11,13 +11,14 @@ import { DnsComponent } from './tools/dns/dns.component';
 import { RdnsComponent } from './tools/rdns/rdns.component';
 import { Base64Component } from './tools/base64/base64.component';
 import { BasicauthComponent } from './tools/basicauth/basicauth.component';
-import { BcryptComponent } from './tools/bcrypt/bcrypt.component';
 import {UuidGeneratorComponent} from "./tools/uuid-generator/uuid-generator.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { GeneratorSimpleComponent } from './components/generator-simple/generator-simple.component';
 import { EncoderBidirectionalComponent } from './components/encoder-bidirectional/encoder-bidirectional.component';
 import { URLEncodeComponent } from './tools/urlencode/urlencode.component';
+import { ChangelogComponent } from './pages/changelog/changelog.component';
+import { ContributeComponent } from './pages/contribute/contribute.component';
 
 @NgModule({
   declarations: [
@@ -30,10 +31,11 @@ import { URLEncodeComponent } from './tools/urlencode/urlencode.component';
     RdnsComponent,
     Base64Component,
     BasicauthComponent,
-    BcryptComponent,
     GeneratorSimpleComponent,
     EncoderBidirectionalComponent,
-    URLEncodeComponent
+    URLEncodeComponent,
+    ChangelogComponent,
+    ContributeComponent
   ],
   imports: [
     BrowserModule,

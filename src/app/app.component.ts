@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  title = 'tectools2';
+  title = 'TEC.TOOLS';
+
+  menu = [
+    {
+      title: "Changelog",
+      icon: "file-text",
+      path: "changelog"
+    },
+    {
+      title: "Contribute",
+      icon: "github",
+      path: "contribute"
+    }
+  ];
 }

@@ -1,4 +1,4 @@
-<div class="mt-10 md:px-3 pb-3 border-b border-gray grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3">
+<div class="md:px-3 pb-3 border-b border-gray grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3">
   <div class="flex items-center">
     <i-feather [name]="data.icon" class="text-secondary mt-1 icon-lg"></i-feather>
     <div class="ml-4">
@@ -12,19 +12,17 @@
   </div>
   <div class="md:ml-auto">
     <div
-      class="text-xs bg-gray-200/30 w-full lg:w-fit xl:m-auto py-2 px-5 rounded flex items-center"
+      class="text-xs bg-gray-200/30 w-full lg:w-fit xl:m-auto py-1 px-5 rounded flex items-center"
       *ngIf="data.externalDataProcessors && data.externalDataProcessors.length > 0; else noExternalProcessors;"
     >
       <div class="mr-4">
         <i-feather class="text-orange-400/80 icon-md" name="upload-cloud"></i-feather>
       </div>
-      <div class="text-primary/50 py-2">
-        This tool will process data using following external services:
-        <div class="my-1 ml-1">
-          <span *ngFor="let ep of data.externalDataProcessors" class="external-processor mr-2">
+      <div class="text-primary/50 py-1">
+        This tool will process data outside of your local browser using following services:
+          <span *ngFor="let ep of data.externalDataProcessors" class="external-processor mr-2 text-primary/80">
             <a href="{{ep.url}}">{{ep.name}}</a>
           </span>
-        </div>
       </div>
     </div>
     <ng-template #noExternalProcessors>
@@ -38,7 +36,7 @@
       </div>
     </ng-template>
   </div>
-  <div class="xl:text-right text-xs md:text-sm">
+  <div class="xl:text-right text-xs uppercase">
     <span class="border border-secondary rounded px-2 py-1 font-medium text-secondary">{{data.category}}</span>
     <span class="border border-primary/50 rounded px-2 py-1 text-primary/50 ml-1 " *ngFor="let tag of data.tags">{{tag}}</span>
   </div>
