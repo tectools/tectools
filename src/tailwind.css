@@ -6,7 +6,7 @@ input, select, textarea {
   @apply p-1 border border-primary/20 rounded active:outline-secondary/70 focus:outline-secondary/70 w-full xl:w-6/12 lg:w-8/12 px-1.5
 }
 textarea {
-  @apply resize-none p-2 w-full
+  @apply resize-none py-2 px-3 w-full font-mono
 }
 input:read-only, select:read-only, textarea:read-only {
   @apply bg-gray-50
