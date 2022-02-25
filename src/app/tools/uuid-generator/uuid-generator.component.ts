@@ -14,7 +14,7 @@ import {ToolCategory} from "../../model/tool-category";
   ToolCategory.GENERATOR,
   ["URL"],
   "settings",
-  "Encode or decode uri strings"
+  "Generate random uuids"
 )
 export class UuidGeneratorComponent implements OnInit {
 

@@ -22,7 +22,7 @@ The needed information about your tool is defined using a @Tool directive. This 
 which registers a route to your tool containing your specified data.
 
 #### Categories
-You can find the available categories inside [this enum](https://github.com/ChillUpX/tectools/blob/master/src/app/model/tool-category.ts). If you dont find a matching category, feel free to add a new one.
+You can find the available categories inside [this enum](https://github.com/ChillUpX/tectools/blob/master/src/app/model/tool-category.ts). If you don't find a matching category, feel free to add a new one.
 #### Icons
 TEC.TOOLS uses [feathericons](https://feathericons.com/) or rather [angular-feather](https://www.npmjs.com/package/angular-feather) for displaying icons. Icons get loaded inside the `src/app/icons/icons.module.ts` module and can be used as described in the angular-feather documentation.
 #### External data processors
@@ -30,21 +30,21 @@ If a tool sends data to any external service, this should be marked and gets dis
 #### Example directive
 ```typescript
 @Tool(
-  "UUIDv4", // titel
-  ToolCategory.GENERATOR, // category (used for filter on dashboard)
-  ["URL"], // array of tags (used for search)
-  "settings", // icon
-  "Encode or decode uri strings", //description
-  [ // List of external data processors
+  "DNS", // title
+  ToolCategory.WEB, // category
+  ["DNS"], // tags (used for search)
+  "database", // icon name
+  "Run dns queries (A, AAAA, MX, SRV, PTR, ...)", // description
+  [ // list of external data processors
     new ExternalDataProcessor(
-        "dns.google", // Name
-        "https://dns.google/" // URL
+      "dns.google", // name
+      "https://dns.google/" // url
     )
   ]
 )
 ```
 ### 3. Reusable components
-I tried to define several reusable components inside `src/app/components` which should help creating new tools.
+I tried to define several reusable components inside `src/app/components` which should help create new tools.
 One mandatory component is `<tec-tool-head>`, which is responsible for showing all tool details on the head of the page. For usage examples you can skim through the existing tools. :-)
 
 ## License
