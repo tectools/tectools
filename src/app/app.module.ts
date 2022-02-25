@@ -22,6 +22,9 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
 import {ToolDataService} from "./services/tool-data.service";
 import { URLQueryParserComponent } from './tools/urlquery-parser/urlquery-parser.component';
 import { EncoderTwoInOneOutComponent } from './components/encoder-two-in-one-out/encoder-two-in-one-out.component';
+import {ToolData} from "./model/tool-data";
+import {ToolCategory} from "./model/tool-category";
+import {ExternalDataProcessor} from "./model/external-data-processor";
 
 export function initializeApp(toolDataService: ToolDataService) {
   return(): void => {
@@ -53,7 +56,9 @@ export function initializeApp(toolDataService: ToolDataService) {
     AppRoutingModule,
     IconsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+  ],
+  exports: [
   ],
   providers: [
     ToolDataService,
@@ -66,4 +71,6 @@ export function initializeApp(toolDataService: ToolDataService) {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

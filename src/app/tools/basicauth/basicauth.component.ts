@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {Tool} from "../../services/tool-data.service";
+import { Component } from '@angular/core';
 import {ToolCategory} from "../../model/tool-category";
-import {ExternalDataProcessor} from "../../model/external-data-processor";
+import {tecTool} from "../../services/tool-data.service";
 
 @Component({
   selector: 'app-basicauth',
   templateUrl: './basicauth.component.html',
   styleUrls: ['./basicauth.component.sass']
 })
-@Tool(
+@tecTool(
   "Basic Auth",
   ToolCategory.ENCODE_DECODE,
   ["BasicAuth", "htpasswd"],

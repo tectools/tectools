@@ -2,16 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {Tool} from "../../services/tool-data.service";
 import {ToolCategory} from "../../model/tool-category";
 import {ExternalDataProcessor} from "../../model/external-data-processor";
+import {tecTool} from "../../services/tool-data.service";
 
 @Component({
   selector: 'app-dns',
   templateUrl: './dns.component.html',
   styleUrls: ['./dns.component.sass']
 })
-@Tool(
+@tecTool(
   "DNS",
   ToolCategory.WEB,
   ["DNS"],

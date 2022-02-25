@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Tool} from "../../services/tool-data.service";
-import {ToolCategory} from "../../model/tool-category";
 import * as URI from "uri-js";
 
 @Component({

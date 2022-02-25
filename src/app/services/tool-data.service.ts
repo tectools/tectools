@@ -1,8 +1,34 @@
-import {Component, Injectable} from '@angular/core';
+import { Injectable} from '@angular/core';
 import {Router} from "@angular/router";
 import {ToolData} from "../model/tool-data";
-import {ExternalDataProcessor} from "../model/external-data-processor";
 import {ToolCategory} from "../model/tool-category";
+import {ExternalDataProcessor} from "../model/external-data-processor";
+
+export const tools: ToolData[] = [];
+
+export function tecTool(
+  title:string,
+  category:ToolCategory,
+  tags:string[],
+  icon:string,
+  description:string,
+  externalDataProcessors:ExternalDataProcessor[] = []
+) {
+  return function(target: Function) {
+    tools.push(
+      new ToolData(
+        target,
+        title.replace(" ", "_").toLowerCase(),
+        title,
+        category,
+        tags,
+        icon,
+        description,
+        externalDataProcessors
+      )
+    );
+  }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -32,28 +58,3 @@ export class ToolDataService {
   }
 }
 
-export const tools: ToolData[] = [];
-
-export function Tool(
-  title:string,
-  category:ToolCategory,
-  tags:string[],
-  icon:string,
-  description:string,
-  externalDataProcessors:ExternalDataProcessor[] = []
-) {
-  return function(target: Function) {
-    tools.push(
-      new ToolData(
-        target,
-        title.replace(" ", "_").toLowerCase(),
-        title,
-        category,
-        tags,
-        icon,
-        description,
-        externalDataProcessors
-      )
-    );
-  }
-}

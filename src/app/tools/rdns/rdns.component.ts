@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
-import {Tool} from "../../services/tool-data.service";
 import {ToolCategory} from "../../model/tool-category";
 import {ExternalDataProcessor} from "../../model/external-data-processor";
 import {Router} from "@angular/router";
+import {tecTool} from "../../services/tool-data.service";
 
 @Component({
   selector: 'app-rdns',
   templateUrl: './rdns.component.html',
   styleUrls: ['./rdns.component.sass']
 })
-@Tool(
+@tecTool(
   "Reverse DNS",
   ToolCategory.WEB,
   ["DNS"],
