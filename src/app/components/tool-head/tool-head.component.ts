@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
+import {Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {ToolData} from "../../model/tool-data";
 
 @Component({
   selector: 'tec-tool-head',
@@ -8,12 +9,18 @@ import {ActivatedRoute, Router} from "@angular/router";
 })
 export class ToolHeadComponent implements OnInit {
 
-  public data: any;
+  public data: ToolData|undefined;
 
   constructor(private route:ActivatedRoute) {
+    if(this.route && this.route.snapshot && this.route.snapshot.data) {
+      this.data = <ToolData> this.route.snapshot.data;
+    }
+    else {
+      this.data = undefined;
+    }
   }
 
   ngOnInit(): void {
-    this.data = this.route.snapshot.data;
+    Reflect.get
   }
 }

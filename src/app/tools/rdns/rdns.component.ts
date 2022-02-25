@@ -1,48 +1,46 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {HttpClient} from "@angular/common/http";
+import {Tool} from "../../services/tool-data.service";
+import {ToolCategory} from "../../model/tool-category";
+import {ExternalDataProcessor} from "../../model/external-data-processor";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-rdns',
   templateUrl: './rdns.component.html',
   styleUrls: ['./rdns.component.sass']
 })
+@Tool(
+  "Reverse DNS",
+  ToolCategory.WEB,
+  ["DNS"],
+  "database",
+  "Run reverse dns queries (PTR)",
+  [
+    new ExternalDataProcessor("dns.google", "https://dns.google/")
+  ]
+)
 export class RdnsComponent implements OnInit {
 
-  submitted = false;
-  loading = false;
-
   data: any = null;
+  error: any = null;
 
-  public form = new FormGroup({
-    dnsType: new FormControl('12', Validators.required),
-    dnsHost: new FormControl('', [
-      Validators.required,
-      Validators.pattern('(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)')
-    ])
-  });
-
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  submitRequest() {
-    this.submitted = true;
-    if(this.form.valid) {
-      this.loading = true;
-      this.httpClient.get("https://dns.google/resolve?name="+this.form.value.dnsHost.split(".").reverse().join(".")+".in-addr.arpa&type="+this.form.value.dnsType).subscribe(
-        (res) => {
-          this.data = res;
-          console.log(res);
-          this.loading = false;
-          this.submitted = false;
+  submit(type:string, hostaddress:string) {
+    if(type && hostaddress && hostaddress.match('(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)')) {
+      this.httpClient.get("https://dns.google/resolve?name="+hostaddress.split(".").reverse().join(".")+".in-addr.arpa&type="+type).subscribe({
+        next: (result: any) => {
+          this.data = result;
         },
-        error => {
-          this.loading = false;
-          this.submitted = false;
+        error: (err: any) => {
+          this.error = err;
         }
-      );
+      });
     }
   }
 }

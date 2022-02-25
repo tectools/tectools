@@ -1,4 +1,11 @@
 <tec-tool-head></tec-tool-head>
-<div>
-  Work In Progress
-</div>
+<tec-encoder-two-in-one-out
+  [generateFirstResult]="decode"
+  inputTitle1="Username"
+  inputTitle2="Password"
+
+  [generateSecondResult]="encode"
+  placeholderSecond="[Base64 Encoded username:password]"
+  outputTitle="Output Encoded"
+
+></tec-encoder-two-in-one-out>

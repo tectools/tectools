@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ClipboardService} from "../../util/clipboard.service";
+import {ClipboardService} from "../../services/clipboard.service";
 
 @Component({
   selector: 'tec-encoder-bidirectional',
@@ -12,9 +12,11 @@ export class EncoderBidirectionalComponent implements OnInit {
 
   @Input() generateFirstResult: ((args: any) => string) = () => {return this.error};
   @Input() clipboardFilterFirst: ((value: string) => string) = ClipboardService.filterSame;
+  @Input() placeholderFirst = "";
 
   @Input() generateSecondResult: ((args: any) => string) = () => {return this.error};
   @Input() clipboardFilterSecond: ((value: string) => string) = ClipboardService.filterSame;
+  @Input() placeholderSecond = "";
 
   @Input() rows = 10;
   @Input() showCopyToClipboardButton = true;

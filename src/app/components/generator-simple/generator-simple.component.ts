@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {ClipboardService} from "../../util/clipboard.service";
+import {ClipboardService} from "../../services/clipboard.service";
 
 @Component({
   selector: 'tec-generator-simple',

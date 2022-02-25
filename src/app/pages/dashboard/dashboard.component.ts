@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import {ToolData} from "../../model/tool-data";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,13 +9,12 @@ import {Router} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
 
-  public tools: any[] = [];
+  public tools: ToolData[] = [];
 
   constructor(private router: Router) {
     router.config.forEach((route) => {
       if(route.data) {
-        route.data["path"] = route.path;
-        this.tools.push(route.data);
+        this.tools.push(<ToolData> route.data);
       }
     });
   }

@@ -1,4 +1,4 @@
-<div class="border border-gray rounded py-2 px-3 items-center text-sm bg-gray-50 font-mono">
+<div class="border border-sky-100 rounded py-3 px-4 items-center text-sm bg-sky-50 font-mono">
   <p class="text-sky-900/80">
     <b>TEC.TOOLS</b> is a collection of tools that everyone working in IT could make use of. Most of the tools work <b>locally</b>, so
     no data will be uploaded to any server unless otherwise noted. You can find the <b>source code</b> on
@@ -7,16 +7,21 @@
   </p>
 </div>
 <div class="mt-5 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 auto-rows-fr">
-  <div *ngFor="let tool of tools" class="border border-gray rounded hover:cursor-pointer hover:bg-gray-50 items-center grid grid-cols-auto-1 p-2" [routerLink]="tool.path">
-    <div class="flex items-center ml-2">
-      <i-feather [name]="tool.icon" class="text-secondary mr-4 ml-1 icon-lg"></i-feather>
-    </div>
-    <div class="py-2 px-1 mb-1">
-      <div class="text-2xl font-medium text-primary/90">
-        {{tool.title}}
+  <div *ngFor="let tool of tools" class="border border-gray rounded hover:cursor-pointer hover:bg-gray-50" [routerLink]="tool.path">
+    <div class="relative">
+      <div class="absolute top-2 right-2 border border-secondary font-mono text-xs rounded-lg text-secondary uppercase px-1">
+        {{tool.category}}
       </div>
-      <div class="text-sm text-gray-500 mt-1">
-        {{tool.description}}
+    </div>
+    <div class="h-full grid grid-cols-auto-1 items-center px-2 py-4">
+      <i-feather [name]="tool.icon" class="icon-lg text-secondary m-3"></i-feather>
+      <div class="ml-2">
+        <div class="text-primary/90 text-2xl font-medium">
+          {{tool.title}}
+        </div>
+        <div class="text-sm leading-4 pb-1.5 mt-1 pr-2 text-primary/60">
+          {{tool.description}}
+        </div>
       </div>
     </div>
   </div>

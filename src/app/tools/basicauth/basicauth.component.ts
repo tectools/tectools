@@ -1,60 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Tool} from "../../services/tool-data.service";
+import {ToolCategory} from "../../model/tool-category";
+import {ExternalDataProcessor} from "../../model/external-data-processor";
 
 @Component({
   selector: 'app-basicauth',
   templateUrl: './basicauth.component.html',
   styleUrls: ['./basicauth.component.sass']
 })
-export class BasicauthComponent implements OnInit {
-
-  public formEncode = new FormGroup({
-    username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    out: new FormControl('')
-  });
-
-  public formDecode = new FormGroup({
-    encoded: new FormControl('', Validators.required),
-    outUser: new FormControl(''),
-    outPassword: new FormControl('')
-  });
+@Tool(
+  "Basic Auth",
+  ToolCategory.ENCODE_DECODE,
+  ["BasicAuth", "htpasswd"],
+  "shuffle",
+  "Turn username and password into basic auth token or vice versa"
+)
+export class BasicauthComponent {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  submitEncodeRequest() {
-    if(this.formEncode.valid) {
-      this.formEncode.controls['out'].setValue(btoa(this.formEncode.value.username + ":" + this.formEncode.value.password));
+  encode = (input1: string, input2: string): string => {
+    if(!input1 || !input2) {
+      return "";
     }
 
-  }
-
-  submitDecodeRequest() {
-    if(this.formDecode.valid) {
-      const data = atob(this.formDecode.value.encoded).split(":");
-      this.formDecode.controls['outUser'].setValue(data[0]);
-      this.formDecode.controls['outPassword'].setValue(data[1]);
+    try {
+      return btoa(input1+":"+input2);
+    }
+    catch(err) {
+      return err instanceof Error ? err.message : "Unkown Error";
     }
   }
 
-  copyEncodedToClipboard() {
-    if(this.formEncode.value.out.length == 0) {
-      return;
+  decode = (input: string): string[] => {
+    const data = atob(input).split(":");
+    if(data.length < 2) {
+      return ["", ""];
     }
-  }
 
-  copyDecodedUserToClipboard() {
-    if(this.formDecode.value.outUser.length == 0) {
-      return;
-    }
-  }
-
-  copyDecodedPasswordToClipboard() {
-    if(this.formDecode.value.outPassword.length == 0) {
-      return;
-    }
+    return data;
   }
 }

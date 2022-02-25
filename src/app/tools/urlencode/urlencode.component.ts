@@ -1,10 +1,20 @@
 import { Component, OnInit } from '@angular/core';
+import {Tool} from "../../services/tool-data.service";
+import {ToolCategory} from "../../model/tool-category";
+import {ExternalDataProcessor} from "../../model/external-data-processor";
 
 @Component({
   selector: 'app-urlencode',
   templateUrl: './urlencode.component.html',
   styleUrls: ['./urlencode.component.sass']
 })
+@Tool(
+  "URL Encoding",
+  ToolCategory.WEB,
+  ["URL"],
+  "link",
+  "Encode or decode uri strings"
+)
 export class URLEncodeComponent implements OnInit {
 
   encode = (input: string): string => {

@@ -1,0 +1,41 @@
+<div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+  <div>
+    <div class="font-medium py-2 pt-5">
+      <span class="text-lg">{{inputTitle1}}</span>
+      <button class="ml-3"><i-feather name="clipboard" (click)="copyToClipboardFirst1()"></i-feather></button>
+    </div>
+    <input
+      class="w-full"
+      [value]="valFirst1"
+      (keyup)="inputFirst(firstInput1.value, firstInput2.value)"
+      [placeholder]="placeholderFirst1"
+      #firstInput1
+    >
+    <div class="font-medium py-2">
+      <span class="text-lg">{{inputTitle2}}</span>
+      <button class="ml-3"><i-feather name="clipboard" (click)="copyToClipboardFirst2()"></i-feather></button>
+    </div>
+    <input
+      class="w-full"
+      [value]="valFirst2"
+      (keyup)="inputFirst(firstInput1.value, firstInput2.value)"
+      [placeholder]="placeholderFirst2"
+      #firstInput2
+    >
+  </div>
+
+  <div>
+    <div class="font-medium py-2 pt-5">
+      <span class="text-lg">{{outputTitle}}</span>
+      <button class="ml-3"><i-feather name="clipboard" (click)="copyToClipboardSecond()"></i-feather></button>
+    </div>
+    <textarea
+      class="w-full"
+      [value]="valSecond"
+      [rows]="rows"
+      (keyup)="inputSecond(secondInput.value)"
+      [placeholder]="placeholderSecond"
+      #secondInput
+    ></textarea>
+  </div>
+</div>

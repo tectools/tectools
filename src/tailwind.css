@@ -17,3 +17,6 @@ button {
 h4 {
   @apply text-lg
 }
+label {
+  @apply whitespace-pre-wrap
+}

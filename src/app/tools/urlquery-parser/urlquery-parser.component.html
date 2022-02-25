@@ -1,0 +1,27 @@
+<tec-tool-head></tec-tool-head>
+<div class="mt-5">
+  <div class="text-gray-600">Input URL</div>
+  <textarea #url (keyup)="inputChange(url.value)" (change)="inputChange(url.value)"></textarea>
+</div>
+<div class="mt-10">
+  <div *ngIf="data.scheme">
+    <div>Scheme</div>
+    <input #scheme [value]="data.scheme">
+  </div>
+  <div *ngIf="data.host">
+    <div>Host</div>
+    <input #host [value]="data.host">
+  </div>
+  <div *ngIf="data.port">
+    <div>Port</div>
+    <input #port [value]="data.port">
+  </div>
+  <div *ngIf="data.path">
+    <div>Path</div>
+    <input #path [value]="data.path">
+  </div>
+  <div *ngIf="data.query">
+    <div>Query</div>
+    <input #query [value]="data.query">
+  </div>
+</div>

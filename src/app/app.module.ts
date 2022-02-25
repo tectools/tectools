@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,15 @@ import { EncoderBidirectionalComponent } from './components/encoder-bidirectiona
 import { URLEncodeComponent } from './tools/urlencode/urlencode.component';
 import { ChangelogComponent } from './pages/changelog/changelog.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
+import {ToolDataService} from "./services/tool-data.service";
+import { URLQueryParserComponent } from './tools/urlquery-parser/urlquery-parser.component';
+import { EncoderTwoInOneOutComponent } from './components/encoder-two-in-one-out/encoder-two-in-one-out.component';
+
+export function initializeApp(toolDataService: ToolDataService) {
+  return(): void => {
+      return toolDataService.initRoutes();
+  };
+}
 
 @NgModule({
   declarations: [
@@ -35,7 +44,9 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
     EncoderBidirectionalComponent,
     URLEncodeComponent,
     ChangelogComponent,
-    ContributeComponent
+    ContributeComponent,
+    URLQueryParserComponent,
+    EncoderTwoInOneOutComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +55,15 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ToolDataService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      multi: true,
+      deps: [ToolDataService]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
