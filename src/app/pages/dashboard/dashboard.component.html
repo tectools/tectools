@@ -6,6 +6,31 @@
     Feel free to create pull requests or let me know about your ideas.
   </p>
 </div>
+<div class="mt-5 border rounded border-gray overflow-hidden bg-gray-50">
+  <div class="text-primary/50 bg-gray-100 px-2 py-1 font-medium text-sm uppercase">
+    Filter
+  </div>
+  <div class="px-3 py-4">
+    <input class="w-full text-primary/80 font-mono text-sm" placeholder="Search ..." (keyup)="search(searchbar.value)" #searchbar>
+    <div class="mt-2 text-xs lg:text-sm select-none">
+    <span
+      class="border border-sky-500 rounded text-sky-500 px-1 mr-2 hover:cursor-pointer"
+      (click)="filterCategory(searchbar, $event.target)"
+      [ngClass]="{'font-medium bg-sky-500 text-slate-50':(searchbar.value == '')}"
+    >
+      All Categories
+    </span>
+      <span
+        class="border border-sky-500 rounded text-sky-500 px-1 mr-2 hover:cursor-pointer"
+        (click)="filterCategory(searchbar, $event.target)"
+        *ngFor="let category of allCategories"
+        [ngClass]="{'font-medium bg-sky-500 text-slate-50':(searchbar.value == category)}"
+      >
+      {{category}}
+    </span>
+    </div>
+  </div>
+</div>
 <div class="mt-5 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 auto-rows-fr">
   <div *ngFor="let tool of tools" class="border border-gray rounded hover:cursor-pointer hover:bg-gray-50" [routerLink]="tool.path">
     <div class="relative">

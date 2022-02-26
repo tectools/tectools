@@ -6,7 +6,7 @@ import {ExternalDataProcessor} from "../model/external-data-processor";
 
 export const tools: ToolData[] = [];
 
-export function tecTool(
+export function Tool(
   title:string,
   category:ToolCategory,
   tags:string[],

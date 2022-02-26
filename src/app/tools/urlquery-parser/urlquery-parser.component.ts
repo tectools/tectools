@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as URI from "uri-js";
 
 @Component({
@@ -6,7 +6,7 @@ import * as URI from "uri-js";
   templateUrl: './urlquery-parser.component.html',
   styleUrls: ['./urlquery-parser.component.sass']
 })
-//TODO: Implement URL Query Parser
+//TODO: Implement
 export class URLQueryParserComponent implements OnInit {
 
   data: any;

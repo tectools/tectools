@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ToolCategory} from "../../model/tool-category";
-import {tecTool} from "../../services/tool-data.service";
+import {Tool} from "../../services/tool-data.service";
 
 @Component({
   selector: 'app-base64',
   templateUrl: './base64.component.html',
   styleUrls: ['./base64.component.sass']
 })
-@tecTool(
+@Tool(
   "Base64",
   ToolCategory.ENCODE_DECODE,
   ["Base64"],

@@ -2,17 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import {v4 as uuid} from "uuid";
 import {ClipboardService} from "../../services/clipboard.service";
 import {ToolCategory} from "../../model/tool-category";
-import {tecTool} from "../../services/tool-data.service";
+import {Tool} from "../../services/tool-data.service";
 
 @Component({
   selector: 'app-uuid-generator',
   templateUrl: './uuid-generator.component.html',
   styleUrls: ['./uuid-generator.component.sass']
 })
-@tecTool(
+@Tool(
   "UUIDv4",
   ToolCategory.GENERATOR,
-  ["URL"],
+  ["ID", "unique"],
   "settings",
   "Generate random uuids"
 )

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {ToolCategory} from "../../model/tool-category";
-import {tecTool} from "../../services/tool-data.service";
+import {Tool} from "../../services/tool-data.service";
 
 @Component({
   selector: 'app-urlencode',
   templateUrl: './urlencode.component.html',
   styleUrls: ['./urlencode.component.sass']
 })
-@tecTool(
+@Tool(
   "URL Encoding",
   ToolCategory.WEB,
   ["URL"],

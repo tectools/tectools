@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import {ToolCategory} from "../../model/tool-category";
-import {tecTool} from "../../services/tool-data.service";
+import {Tool} from "../../services/tool-data.service";
 
 @Component({
   selector: 'app-basicauth',
   templateUrl: './basicauth.component.html',
   styleUrls: ['./basicauth.component.sass']
 })
-@tecTool(
+@Tool(
   "Basic Auth",
   ToolCategory.ENCODE_DECODE,
-  ["BasicAuth", "htpasswd"],
+  ["BasicAuth", "htpasswd", "Base64"],
   "shuffle",
   "Turn username and password into basic auth token or vice versa"
 )
