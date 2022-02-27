@@ -8,7 +8,7 @@ import {ClipboardService} from "../../services/clipboard.service";
 })
 export class EncoderTwoInOneOutComponent implements OnInit {
 
-  private error = "Error: No data handler specified for this EncoderBidirectional child component.";
+  private error = "Error: No data handler specified for this EncoderTwoInOneOut child component.";
 
   /* HANDLER FOR INPUT SIDE */
   @Input() generateFirstResult: ((args: any) => string[]) = () => {return [this.error, this.error]};

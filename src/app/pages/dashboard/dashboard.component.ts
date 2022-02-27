@@ -10,7 +10,11 @@ import {ToolCategory} from "../../model/tool-category";
 })
 export class DashboardComponent implements OnInit {
 
-  public allCategories = Object.values(ToolCategory);
+  public allCategories = Object.values(ToolCategory).sort((a, b) => {
+    if(a < b) { return -1; }
+    if(a > b) { return 1; }
+    return 0;
+  });
   private allTools: ToolData[] = [];
   public tools: ToolData[] = [];
 

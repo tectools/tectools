@@ -25,6 +25,7 @@ import { EncoderTwoInOneOutComponent } from './components/encoder-two-in-one-out
 import {ToolData} from "./model/tool-data";
 import {ToolCategory} from "./model/tool-category";
 import {ExternalDataProcessor} from "./model/external-data-processor";
+import { EncoderOneInMultiOutComponent } from './components/encoder-one-in-multi-out/encoder-one-in-multi-out.component';
 
 export function initializeApp(toolDataService: ToolDataService) {
   return(): void => {
@@ -49,7 +50,8 @@ export function initializeApp(toolDataService: ToolDataService) {
     ChangelogComponent,
     ContributeComponent,
     URLQueryParserComponent,
-    EncoderTwoInOneOutComponent
+    EncoderTwoInOneOutComponent,
+    EncoderOneInMultiOutComponent
   ],
   imports: [
     BrowserModule,

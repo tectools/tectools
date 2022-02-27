@@ -14,6 +14,9 @@ module.exports = {
       colors: {
         'primary':'#00254b',
         'secondary':'#0A89E5',
+      },
+      fontSize: {
+        'tiny': '0.625rem'
       }
     },
   },

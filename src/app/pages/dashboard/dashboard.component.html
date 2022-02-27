@@ -1,41 +1,13 @@
-<div class="border border-sky-100 rounded py-3 px-4 items-center text-sm bg-sky-50 font-mono">
-  <p class="text-sky-900/80">
-    <b>TEC.TOOLS</b> is a collection of tools that everyone working in IT could make use of. Most of the tools work <b>locally</b>, so
-    no data will be uploaded to any server unless otherwise noted. You can find the <b>source code</b> on
-    <a class="font-bold" target="_blank" href="https://github.com/ChillUpX/tectools">GitHub</a>.
-    Feel free to create pull requests or let me know about your ideas.
-  </p>
-</div>
-<div class="mt-5 border rounded border-gray overflow-hidden bg-gray-50">
-  <div class="text-primary/50 bg-gray-100 px-2 py-1 font-medium text-sm uppercase">
-    Filter
-  </div>
-  <div class="px-3 py-4">
-    <input class="w-full text-primary/80 font-mono text-sm" placeholder="Search ..." (keyup)="search(searchbar.value)" #searchbar>
-    <div class="mt-2 text-xs lg:text-sm select-none">
-    <span
-      class="border border-sky-500 rounded text-sky-500 px-1 mr-2 hover:cursor-pointer"
-      (click)="filterCategory(searchbar, $event.target)"
-      [ngClass]="{'font-medium bg-sky-500 text-slate-50':(searchbar.value == '')}"
-    >
-      All Categories
-    </span>
-      <span
-        class="border border-sky-500 rounded text-sky-500 px-1 mr-2 hover:cursor-pointer"
-        (click)="filterCategory(searchbar, $event.target)"
-        *ngFor="let category of allCategories"
-        [ngClass]="{'font-medium bg-sky-500 text-slate-50':(searchbar.value == category)}"
-      >
-      {{category}}
-    </span>
-    </div>
-  </div>
-</div>
 <div class="mt-5 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 auto-rows-fr">
   <div *ngFor="let tool of tools" class="border border-gray rounded hover:cursor-pointer hover:bg-gray-50" [routerLink]="tool.path">
     <div class="relative">
-      <div class="absolute top-2 right-2 border border-secondary font-mono text-xs rounded-lg text-secondary uppercase px-1">
-        {{tool.category}}
+      <div class="absolute top-2 right-2 text-xs flex">
+        <div class="mr-2 rounded-lg px-2 text-orange-900/50 border border-orange-700/20" *ngIf="tool.externalDataProcessors.length > 0">
+          Uses external API
+        </div>
+        <div class="border border-secondary text-secondary px-1 rounded-lg font-mono uppercase">
+          {{tool.category}}
+        </div>
       </div>
     </div>
     <div class="h-full grid grid-cols-auto-1 items-center px-2 py-4">
