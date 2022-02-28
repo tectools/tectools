@@ -30,7 +30,8 @@ export class MyIPComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.http.get('http://localhost:8788/api/whatsmyip').subscribe({
+    console.log(window.location)
+    this.http.get(window.location.origin + '/api/whatsmyip').subscribe({
       next: (data) => {
         console.log(data);
         this.data = data;
