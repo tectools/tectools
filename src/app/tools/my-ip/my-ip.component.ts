@@ -17,7 +17,7 @@ import {HttpClient} from "@angular/common/http";
   "See your current public IP",
   [
     new ExternalDataProcessor(
-      "tec.tools API",
+      window.location.host + " API",
       "https://tec.tools/api/"
     )
   ],
@@ -30,10 +30,8 @@ export class MyIPComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    console.log(window.location)
     this.http.get(window.location.origin + '/api/whatsmyip').subscribe({
       next: (data) => {
-        console.log(data);
         this.data = data;
       },
       error: (err) => {
@@ -41,5 +39,4 @@ export class MyIPComponent implements OnInit {
       }
     })
   }
-
 }
