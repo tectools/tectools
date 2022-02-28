@@ -12,13 +12,14 @@ export function Tool(
   tags:string[],
   icon:string,
   description:string,
-  externalDataProcessors:ExternalDataProcessor[] = []
+  externalDataProcessors:ExternalDataProcessor[] = [],
+  path:string=title.replace(" ", "_").toLowerCase()
 ) {
   return function(target: Function) {
     tools.push(
       new ToolData(
         target,
-        title.replace(" ", "_").toLowerCase(),
+        path,
         title,
         category,
         tags,

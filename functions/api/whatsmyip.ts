@@ -9,5 +9,12 @@ export async function onRequest(context: any) {
     data, // arbitrary space for passing data between middlewares
   } = context;
 
-  return new Response(request.headers.get('CF-Connecting-IP'));
+  return new Response(JSON.stringify({
+    'ip':request.headers.get('CF-Connecting-IP'),
+    'ua':request.headers.get('user-agent')
+  }), {
+    headers: {
+      'Access-Control-Allow-Origin':'*'
+    }
+  });
 }

@@ -2,7 +2,7 @@
   <div *ngFor="let tool of tools" class="border border-gray rounded hover:cursor-pointer hover:bg-gray-50" [routerLink]="tool.path">
     <div class="relative">
       <div class="absolute top-2 right-2 text-xs flex">
-        <div class="mr-2 rounded-lg px-2 text-orange-900/50 border border-orange-700/20" *ngIf="tool.externalDataProcessors.length > 0">
+        <div class="mr-2 rounded-lg px-2 text-orange-800/50 border border-orange-800/20" *ngIf="tool.externalDataProcessors.length > 0">
           Uses external API
         </div>
         <div class="border border-secondary text-secondary px-1 rounded-lg font-mono uppercase">

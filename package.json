@@ -23,6 +23,7 @@
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "uri-js": "^4.4.1",
+    "wrangler": "^0.0.17",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
