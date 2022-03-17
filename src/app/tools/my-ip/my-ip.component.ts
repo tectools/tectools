@@ -18,7 +18,7 @@ import {HttpClient} from "@angular/common/http";
   [
     new ExternalDataProcessor(
       window.location.host + " API",
-      "https://tec.tools/api/"
+      window.location.origin+"/api/"
     )
   ],
   "whatsmyip"
@@ -38,5 +38,7 @@ export class MyIPComponent implements OnInit {
         console.log(err);
       }
     })
+
+    console.log(window.location)
   }
 }
