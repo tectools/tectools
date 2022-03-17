@@ -4,12 +4,18 @@ TEC.TOOLS is a collection of tools that everyone working in IT could make use of
 provide lots of different tools on one page, so that only one bookmark is needed and not one for every tool.
 
 ## Development
-TEC.TOOLS is an angular application. For local testing just clone the repo, setupthe dependencies and start the dev server.
+TEC.TOOLS is an angular application. For local testing just clone the repo, setupthe dependencies and start local development.
+For running the Cloudflare Pages Functions in your local environment, you need to
+[install and use wrangler](https://developers.cloudflare.com/pages/platform/functions/#develop-and-preview-locally).
 ```bash
   npm install
+  
+  # Angular application only (without functions)
   ng serve
+  
+  # Angular application + functions using wrangler
+  npx wrangler pages dev --proxy 4200 -- ng serve --no-live-reload
 ```
-
 ## Contribute
 Please feel free to send pull requests or let me know about your ideas. For everyone
 who wants to add a new tool I will describe the needed implementation steps down below.
