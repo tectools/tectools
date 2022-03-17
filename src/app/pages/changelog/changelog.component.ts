@@ -12,17 +12,16 @@ export class ChangelogComponent implements OnInit {
       date: "2022-02-23",
       changes: [
         {
-          "type":"new",
+          "type":"hint",
           "description":"Initial Commit"
         },
-        {
-          "type":"fix",
-          "description":"Initial Commit"
-        },
-        {
-          "type":"improved",
-          "description":"Initial Commit"
-        },
+        {"type":"new","description":"Base64 - Encode or decode base64 strings"},
+        {"type":"new","description":"Basic Auth - Turn username and password into basic auth token or vice versa"},
+        {"type":"new","description":"DNS - Run dns queries (A, AAAA, MX, SRV, PTR, ...)"},
+        {"type":"new","description":"Reverse DNS - Run reverse dns queries (PTR)"},
+        {"type":"new","description":"URL Encoding - Encode or decode uri strings"},
+        {"type":"new","description":"UUIDv4 - Generate random uuids"},
+        {"type":"new","description":"What's my IP adress? - See your current public IP"}
       ]
     },
   ];
