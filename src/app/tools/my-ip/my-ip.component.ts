@@ -38,7 +38,5 @@ export class MyIPComponent implements OnInit {
         console.log(err);
       }
     })
-
-    console.log(window.location)
   }
 }
