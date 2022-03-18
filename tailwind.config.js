@@ -7,6 +7,7 @@ module.exports = {
       gridTemplateColumns: {
         'auto-1': 'auto 1fr',
         'auto-center': 'auto 1fr auto',
+        'lr': '1fr auto 1fr'
       },
       gridTemplateRows: {
         'auto-mid': 'auto 1fr auto',

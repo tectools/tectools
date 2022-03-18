@@ -19,6 +19,11 @@ export class AppComponent implements OnInit {
       title: "Contribute",
       icon: "github",
       path: "contribute"
+    },
+    {
+      title: "API Documentation",
+      icon: "layers",
+      path: "api"
     }
   ];
 
