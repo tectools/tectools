@@ -28,8 +28,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((e) => {
       if(e instanceof NavigationEnd) {
-
-        console.log("Nav");
         // @ts-ignore
         window['goatcounter'].count({
           path: location.pathname + location.search + location.hash,
