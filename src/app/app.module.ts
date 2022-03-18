@@ -27,6 +27,8 @@ import {ToolCategory} from "./model/tool-category";
 import {ExternalDataProcessor} from "./model/external-data-processor";
 import { EncoderOneInMultiOutComponent } from './components/encoder-one-in-multi-out/encoder-one-in-multi-out.component';
 import { MyIPComponent } from './tools/my-ip/my-ip.component';
+import { ApiComponent } from './pages/api/api.component';
+import { RandompasswordComponent } from './tools/randompassword/randompassword.component';
 
 export function initializeApp(toolDataService: ToolDataService) {
   return(): void => {
@@ -53,7 +55,9 @@ export function initializeApp(toolDataService: ToolDataService) {
     URLQueryParserComponent,
     EncoderTwoInOneOutComponent,
     EncoderOneInMultiOutComponent,
-    MyIPComponent
+    MyIPComponent,
+    ApiComponent,
+    RandompasswordComponent
   ],
   imports: [
     BrowserModule,

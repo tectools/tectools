@@ -9,6 +9,12 @@ export class ChangelogComponent implements OnInit {
 
   changes = [
     {
+      date: "2022-03-18",
+      changes: [
+        {"type":"new", "description":"Random Password - Generate random passwords"}
+      ]
+    },
+    {
       date: "2022-02-23",
       changes: [
         {
