@@ -7,19 +7,21 @@
     <router-outlet></router-outlet>
   </div>
 
-  <div class="footer mt-10 bg-gray-100 grid grid-cols-1 md:grid-cols-2 gap-2 justify-center p-3 text-gray-500">
-    <div class="text-gray-500 text-sm">
-      tec.tools is&nbsp;<a target="_blank" href="https://github.com/ChillUpX/tectools">open source</a>
-    </div>
-    <div class="flex flex-wrap md:justify-end">
-      <div
-        *ngFor="let m of menu" [routerLink]="'/'+m.path"
-        class="group text-black/50 text-xs flex items-center border
+  <div class="footer bg-gray-100 mt-10 ">
+    <div class="lg:w-4/5 2xl:w-3/6 grid grid-cols-1 md:grid-cols-2 gap-2 justify-center p-3 text-gray-500 m-auto">
+      <div class="text-gray-500 text-sm">
+        tec.tools is&nbsp;<a target="_blank" href="https://github.com/ChillUpX/tectools">open source</a>
+      </div>
+      <div class="flex flex-wrap md:justify-end">
+        <div
+          *ngFor="let m of menu" [routerLink]="'/'+m.path"
+          class="group text-black/50 text-xs flex items-center border
           border-black/20 rounded-lg px-2 py-0.5 first:ml-0 mr-2 hover:text-primary/60 hover:cursor-pointer hover:border-primary/60">
-        <i-feather [name]="m.icon"></i-feather>
-        <span class="text-black/60 font-medium ml-1 group-hover:text-primary">
+          <i-feather [name]="m.icon"></i-feather>
+          <span class="text-black/60 font-medium ml-1 group-hover:text-primary">
         {{m.title}}
       </span>
+        </div>
       </div>
     </div>
   </div>
