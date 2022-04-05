@@ -16,11 +16,6 @@ export class AppComponent {
       path: "/changelog"
     },
     {
-      title: "Contribute",
-      icon: "github",
-      path: "https://github.com/tectools/tectools"
-    },
-    {
       title: "API Documentation",
       icon: "layers",
       path: "/api"
