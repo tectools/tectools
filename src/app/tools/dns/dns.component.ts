@@ -18,7 +18,11 @@ import {Tool} from "../../services/tool-data.service";
   "database",
   "Run dns queries (A, AAAA, MX, SRV, PTR, ...)",
   [
-    new ExternalDataProcessor("dns.google", "https://dns.google/")
+    new ExternalDataProcessor(
+      "dns.google",
+      "https://dns.google/",
+      "https://developers.google.com/speed/public-dns/privacy",
+      "https://developers.google.com/speed/public-dns/terms")
   ]
 )
 export class DnsComponent implements OnInit {

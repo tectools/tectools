@@ -10,7 +10,7 @@ import {
   AlertTriangle,
   ExternalLink,
   Check,
-  Shield, ShieldOff, UploadCloud, CloudOff, Clipboard, Link, Shuffle, Github, FileText, Share2, Layers
+  Shield, ShieldOff, UploadCloud, CloudOff, Clipboard, Link, Shuffle, Github, FileText, Share2, Layers, ChevronRight, ChevronDown
 } from "angular-feather/icons";
 
 const icons = {
@@ -32,7 +32,8 @@ const icons = {
   Github,
   FileText,
   Share2,
-  Layers
+  Layers,
+  ChevronRight, ChevronDown
 }
 
 @NgModule({
