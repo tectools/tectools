@@ -18,7 +18,6 @@ import { GeneratorSimpleComponent } from './components/generator-simple/generato
 import { EncoderBidirectionalComponent } from './components/encoder-bidirectional/encoder-bidirectional.component';
 import { URLEncodeComponent } from './tools/urlencode/urlencode.component';
 import { ChangelogComponent } from './pages/changelog/changelog.component';
-import { ContributeComponent } from './pages/contribute/contribute.component';
 import {ToolDataService} from "./services/tool-data.service";
 import { URLQueryParserComponent } from './tools/urlquery-parser/urlquery-parser.component';
 import { EncoderTwoInOneOutComponent } from './components/encoder-two-in-one-out/encoder-two-in-one-out.component';
@@ -51,7 +50,6 @@ export function initializeApp(toolDataService: ToolDataService) {
     EncoderBidirectionalComponent,
     URLEncodeComponent,
     ChangelogComponent,
-    ContributeComponent,
     URLQueryParserComponent,
     EncoderTwoInOneOutComponent,
     EncoderOneInMultiOutComponent,

@@ -14,13 +14,13 @@
       </div>
       <div class="flex flex-wrap md:justify-end">
         <div
-          *ngFor="let m of menu" [routerLink]="'/'+m.path"
+          *ngFor="let m of menu" [routerLink]="m.path"
           class="group text-black/50 text-xs flex items-center border
           border-black/20 rounded-lg px-2 py-0.5 first:ml-0 mr-2 hover:text-primary/60 hover:cursor-pointer hover:border-primary/60">
           <i-feather [name]="m.icon"></i-feather>
           <span class="text-black/60 font-medium ml-1 group-hover:text-primary">
-        {{m.title}}
-      </span>
+            {{m.title}}
+          </span>
         </div>
       </div>
     </div>
