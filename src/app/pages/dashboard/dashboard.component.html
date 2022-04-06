@@ -1,10 +1,10 @@
 <div *ngIf="this.starred.length > 0">
-  <div class="uppercase font-medium flex justify-between items-end">
+  <div class="uppercase font-medium flex justify-between items-end border-b border-secondary/5 pb-1">
     <div class="text-primary/40 ">
       Starred
     </div>
     <div>
-      <button (click)="unstarAll()">Remove all stars</button>
+      <button (click)="unstarAll()" class="btn-sm">Remove all stars</button>
     </div>
   </div>
   <div
@@ -13,7 +13,7 @@
   ></div>
 </div>
 <div *ngFor="let coll of filterUnstarredToolsByCollection() | keyvalue" class="mt-5">
-  <div class="uppercase font-medium text-primary/40">
+  <div class="uppercase font-medium text-primary/40 border-b border-secondary/5 pb-0.5">
     {{coll.key}}
   </div>
   <div
