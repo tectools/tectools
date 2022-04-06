@@ -28,6 +28,7 @@ import { EncoderOneInMultiOutComponent } from './components/encoder-one-in-multi
 import { MyIPComponent } from './tools/my-ip/my-ip.component';
 import { ApiComponent } from './pages/api/api.component';
 import { RandompasswordComponent } from './tools/randompassword/randompassword.component';
+import {CookieService} from "ngx-cookie-service";
 
 export function initializeApp(toolDataService: ToolDataService) {
   return(): void => {
@@ -67,6 +68,7 @@ export function initializeApp(toolDataService: ToolDataService) {
   exports: [
   ],
   providers: [
+    CookieService,
     ToolDataService,
     {
       provide: APP_INITIALIZER,

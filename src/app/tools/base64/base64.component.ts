@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ToolCategory} from "../../model/tool-category";
 import {Tool} from "../../services/tool-data.service";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-base64',
@@ -9,6 +10,7 @@ import {Tool} from "../../services/tool-data.service";
 })
 @Tool(
   "Base64",
+  ToolCollection.GENERAL,
   ToolCategory.ENCODE_DECODE,
   ["Base64"],
   "shuffle",

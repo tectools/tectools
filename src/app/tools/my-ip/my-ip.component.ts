@@ -3,6 +3,7 @@ import {Tool} from "../../services/tool-data.service";
 import {ToolCategory} from "../../model/tool-category";
 import {ExternalDataProcessor} from "../../model/external-data-processor";
 import {HttpClient} from "@angular/common/http";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-my-ip',
@@ -11,6 +12,7 @@ import {HttpClient} from "@angular/common/http";
 })
 @Tool(
   "What's my IP address?",
+  ToolCollection.GENERAL,
   ToolCategory.WEB,
   ["IP"],
   "share-2",

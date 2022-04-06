@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {ToolCategory} from "../../model/tool-category";
 import {ExternalDataProcessor} from "../../model/external-data-processor";
 import {Tool} from "../../services/tool-data.service";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-dns',
@@ -13,6 +14,7 @@ import {Tool} from "../../services/tool-data.service";
 })
 @Tool(
   "DNS",
+  ToolCollection.GENERAL,
   ToolCategory.WEB,
   ["DNS"],
   "database",

@@ -3,11 +3,13 @@ import {Router} from "@angular/router";
 import {ToolData} from "../model/tool-data";
 import {ToolCategory} from "../model/tool-category";
 import {ExternalDataProcessor} from "../model/external-data-processor";
+import {ToolCollection} from "../model/tool-collection";
 
 export const tools: ToolData[] = [];
 
 export function Tool(
   title:string,
+  collection:ToolCollection,
   category:ToolCategory,
   tags:string[],
   icon:string,
@@ -21,6 +23,7 @@ export function Tool(
         target,
         path,
         title,
+        collection,
         category,
         tags,
         icon,

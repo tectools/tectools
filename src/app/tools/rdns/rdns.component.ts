@@ -5,6 +5,7 @@ import {ToolCategory} from "../../model/tool-category";
 import {ExternalDataProcessor} from "../../model/external-data-processor";
 import {Router} from "@angular/router";
 import {Tool} from "../../services/tool-data.service";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-rdns',
@@ -13,6 +14,7 @@ import {Tool} from "../../services/tool-data.service";
 })
 @Tool(
   "Reverse DNS",
+  ToolCollection.GENERAL,
   ToolCategory.WEB,
   ["DNS"],
   "database",
