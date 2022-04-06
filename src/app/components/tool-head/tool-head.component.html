@@ -1,5 +1,5 @@
-<div *ngIf="data">
-  <div class="md:px-3 pb-3 border-b border-gray grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3">
+<div *ngIf="data" class="border-b border-gray pb-3">
+  <div class="md:px-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3">
     <div class="flex items-center">
       <i-feather [name]="data.icon" class="text-secondary mt-1 icon-lg"></i-feather>
       <div class="ml-4">
@@ -34,7 +34,7 @@
   <!-- TODO: Design -->
   <div
     *ngIf="data.externalDataProcessors && data.externalDataProcessors.length > 0"
-    class="border border-primary/10 rounded mt-5 "
+    class="border border-primary/10 rounded mx-3 my-3 mb-0"
   >
     <div class="flex flex-row items-center hover:bg-primary/10 hover:cursor-pointer py-1 text-primary/60 select-none">
       <i-feather class="ml-3 mt-0.5 icon-sm text-orange-500" name="upload-cloud"></i-feather>

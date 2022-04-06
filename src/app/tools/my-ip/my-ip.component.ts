@@ -16,10 +16,7 @@ import {HttpClient} from "@angular/common/http";
   "share-2",
   "See your current public IP",
   [
-    new ExternalDataProcessor(
-      window.location.host + " API",
-      window.location.origin+"/api/"
-    )
+    ExternalDataProcessor.SELF
   ],
   "whatsmyip"
 )
