@@ -1,6 +1,7 @@
 import {Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ToolData} from "../../model/tool-data";
+import {BehaviorSubject, Observable} from "rxjs";
 
 @Component({
   selector: 'tec-tool-head',
@@ -21,6 +22,6 @@ export class ToolHeadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    Reflect.get
+
   }
 }
