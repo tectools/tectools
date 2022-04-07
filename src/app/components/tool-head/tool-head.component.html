@@ -8,12 +8,17 @@
             {{data.title}}
           </div>
           <div>
-            <div class="w-fit flex flex-row items-center px-2 ml-1 rounded-2xl p-0 text-md text-primary/90 select-none" (click)="switchStarred()">
-              <ng-template [ngIf]="!(isStarred | async)">
-                <i-feather name="star" class="text-primary/90 cursor-pointer" style="width: 1.5rem !important; height: 1.5rem !important;"></i-feather>
+            <div class="w-fit flex flex-row items-center px-2 ml-1 rounded-2xl p-0 text-md text-primary/90 select-none" (click)="switchBookmarked()">
+              <ng-template [ngIf]="!(isBookmarked | async)">
+                <div class="tooltip -mb-2">
+                  <i-feather name="bookmark" class="text-primary/90 cursor-pointer !w-6 !h-6 hover:text-primary/60"></i-feather>
+                  <span class="tooltiptext">
+                    Bookmark!
+                  </span>
+                </div>
               </ng-template>
-              <ng-template [ngIf]="(isStarred | async)">
-                <i-feather name="star" class="text-amber-500/90 cursor-pointer icon-star" style=""></i-feather>
+              <ng-template [ngIf]="(isBookmarked | async)">
+                <i-feather name="bookmark" class="text-amber-500/90 cursor-pointer !w-6 !h-6 !fill-amber-500" style=""></i-feather>
               </ng-template>
             </div>
           </div>

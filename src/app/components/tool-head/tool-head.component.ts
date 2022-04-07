@@ -2,7 +2,7 @@ import {Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ToolData} from "../../model/tool-data";
 import {BehaviorSubject, Observable} from "rxjs";
-import {StarService} from "../../services/star.service";
+import {BookmarkService} from "../../services/bookmark.service";
 
 @Component({
   selector: 'tec-tool-head',
@@ -13,10 +13,10 @@ export class ToolHeadComponent implements OnInit {
 
   public data: ToolData|undefined;
 
-  public isStarredSubject: BehaviorSubject<boolean>;
-  public isStarred: Observable<boolean>;
+  public isBookmarkedSubject: BehaviorSubject<boolean>;
+  public isBookmarked: Observable<boolean>;
 
-  constructor(private route:ActivatedRoute, private star: StarService) {
+  constructor(private route:ActivatedRoute, private star: BookmarkService) {
     if(this.route && this.route.snapshot && this.route.snapshot.data) {
       this.data = <ToolData> this.route.snapshot.data;
     }
@@ -24,22 +24,21 @@ export class ToolHeadComponent implements OnInit {
       this.data = undefined;
     }
 
-    this.isStarredSubject = new BehaviorSubject<boolean>(this.data ? star.isStarred(this.data.path) : false);
-    this.isStarred = this.isStarredSubject.asObservable();
+    this.isBookmarkedSubject = new BehaviorSubject<boolean>(this.data ? star.isBookmarked(this.data.path) : false);
+    this.isBookmarked = this.isBookmarkedSubject.asObservable();
   }
 
   ngOnInit(): void {
 
   }
 
-  switchStarred() {
+  switchBookmarked() {
     if(this.data === undefined) {
       return;
     }
 
-    let newValue = !this.isStarredSubject.value;
-    this.isStarredSubject.next(newValue);
-
-    newValue ? this.star.star(this.data.path) : this.star.unstar(this.data.path);
+    let newValue = !this.isBookmarkedSubject.value;
+    this.isBookmarkedSubject.next(newValue);
+    newValue ? this.star.bookmark(this.data.path) : this.star.unbookmark(this.data.path);
   }
 }

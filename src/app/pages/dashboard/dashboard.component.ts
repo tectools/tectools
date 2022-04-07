@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
 import {ToolData} from "../../model/tool-data";
 import {ToolCategory} from "../../model/tool-category";
-import {StarService} from "../../services/star.service";
+import {BookmarkService} from "../../services/bookmark.service";
 import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit {
 
   starred: string[];
 
-  constructor(private router: Router, private star: StarService) {
+  constructor(private router: Router, private star: BookmarkService) {
     // Get all tools by registered routes
     router.config.forEach((route) => {
       if(route.data && route.data instanceof ToolData) {
@@ -29,7 +29,7 @@ export class DashboardComponent implements OnInit {
       }
     });
 
-    this.starred = star.getStarred();
+    this.starred = star.getBookmarked();
   }
 
   filterStarredTools() : ToolData[] {
@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
   }
 
   unstarAll() {
-    this.star.unstarAll();
+    this.star.unbookmarkAll();
     window.location.reload();
   }
 }
