@@ -1,12 +1,4 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/ChillUpX/tectools/master/src/assets/header.png" alt="TEC.TOOLS LOGO"/> 
-  <br />
-  <br />
-  <p>
-    TEC.TOOLS is a collection of tools that everyone working in IT could make use of. TEC.TOOLS aims to
-    provide lots of different tools on one page, so that only one bookmark is needed and not one for every tool.
-  </p>  
-  <hr />
   <!-- Badges -->
   <p>
     <a href="https://github.com/tectools/tectools/graphs/contributors">
@@ -28,11 +20,21 @@
       <img src="https://img.shields.io/github/stars/tectools/tectools?style=social" alt="stars" />
     </a>
   </p>
+  <br />
+  <img src="https://raw.githubusercontent.com/ChillUpX/tectools/master/src/assets/header.png" alt="TEC.TOOLS LOGO"/> 
+  <br />
+  <br />
+  <p>
+    TEC.TOOLS is a collection of tools that everyone working in IT could make use of. TEC.TOOLS aims to
+    provide lots of different tools on one page, so that only one bookmark is needed and not one for every tool.
+  </p>  
+  <hr />
   <h3>
     <a href="">Try TEC.TOOLS yourself</a><span> · </span>
     <a href="">Contribute</a><span> · </span>
     <a href="https://github.com/tectools/tectools/issues/new?assignees=&labels=idea&template=idea-template.md&title=%5BIDEA%5D">Submit Tool Ideas</a>
   </h3>
+  <hr />
 </div>
 
 ## Development
