@@ -1,18 +1,18 @@
-<div *ngIf="this.starred.length > 0">
+<div *ngIf="this.bookmarked.length > 0">
   <div class="uppercase font-medium flex justify-between items-end">
     <div class="text-primary/40 ">
       Bookmarked
     </div>
     <div>
-      <button (click)="unstarAll()">Remove all stars</button>
+      <button (click)="unbookmarkAll()">Remove all stars</button>
     </div>
   </div>
   <div
     [ngTemplateOutlet]="toolsDisplay"
-    [ngTemplateOutletContext]="{tools:this.filterStarredTools(), bookmarker:true}"
+    [ngTemplateOutletContext]="{tools:this.filterBookmarkedTools(), bookmarker:true}"
   ></div>
 </div>
-<div *ngFor="let coll of filterUnstarredToolsByCollection() | keyvalue" class="mt-5">
+<div *ngFor="let coll of filterNonBookmarkedToolsByCollection() | keyvalue" class="mt-5">
   <div class="uppercase font-medium text-primary/40">
     {{coll.key}}
   </div>
