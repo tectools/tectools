@@ -2,39 +2,38 @@
   <!-- Badges -->
   <p>
     <a href="https://github.com/tectools/tectools/graphs/contributors">
-      <img src="https://img.shields.io/github/contributors/tectools/tectools" alt="contributors" />
+      <img src="https://img.shields.io/github/contributors/tectools/tectools" alt="contributors"></img>
     </a>
     <a href="">
-      <img src="https://img.shields.io/github/last-commit/tectools/tectools" alt="last update" />
+      <img src="https://img.shields.io/github/last-commit/tectools/tectools" alt="last update"></img>
     </a>
     <a href="https://github.com/tectools/tectools/issues/">
-      <img src="https://img.shields.io/github/issues/tectools/tectools" alt="open issues" />
+      <img src="https://img.shields.io/github/issues/tectools/tectools" alt="open issues"></img>
     </a>
     <a href="https://github.com/tectools/tectools/blob/master/LICENSE">
-      <img src="https://img.shields.io/github/license/tectools/tectools.svg" alt="license" />
+      <img src="https://img.shields.io/github/license/tectools/tectools.svg" alt="license"></img>
     </a>
     <a href="https://github.com/tectools/tectools/network/members">
-      <img src="https://img.shields.io/github/forks/tectools/tectools?style=social" alt="forks" />
+      <img src="https://img.shields.io/github/forks/tectools/tectools?style=social" alt="forks"></img>
     </a>
     <a href="https://github.com/tectools/tectools/stargazers">
-      <img src="https://img.shields.io/github/stars/tectools/tectools?style=social" alt="stars" />
+      <img src="https://img.shields.io/github/stars/tectools/tectools?style=social" alt="stars"></img>
     </a>
   </p>
-  <br />
-  <img src="https://raw.githubusercontent.com/ChillUpX/tectools/master/src/assets/header.png" alt="TEC.TOOLS LOGO"/> 
-  <br />
-  <br />
+  <br></br>
+  <img src="https://raw.githubusercontent.com/ChillUpX/tectools/master/src/assets/header.png" alt="TEC.TOOLS LOGO"></img> 
+  <br></br>
   <p>
     TEC.TOOLS is a collection of tools that everyone working in IT could make use of. TEC.TOOLS aims to
     provide lots of different tools on one page, so that only one bookmark is needed and not one for every tool.
-  </p>  
-  <hr />
+  </p>
+  <br></br>
   <h3>
     <a href="">Try TEC.TOOLS yourself</a><span> · </span>
     <a href="">Contribute</a><span> · </span>
     <a href="https://github.com/tectools/tectools/issues/new?assignees=&labels=idea&template=idea-template.md&title=%5BIDEA%5D">Submit Tool Ideas</a>
   </h3>
-  <hr />
+  <br></br>
 </div>
 
 ## Development
