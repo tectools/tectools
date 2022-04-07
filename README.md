@@ -1,5 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/ChillUpX/tectools/master/src/assets/header.png" alt="TEC.TOOLS LOGO"/> 
+  <br />
+  <br />
   <p>
     TEC.TOOLS is a collection of tools that everyone working in IT could make use of. TEC.TOOLS aims to
     provide lots of different tools on one page, so that only one bookmark is needed and not one for every tool.
