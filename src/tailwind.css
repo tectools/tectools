@@ -20,6 +20,9 @@ h4 {
 label {
   @apply whitespace-pre-wrap
 }
+i-feather {
+  @apply !w-4 !h-4
+}
 
 .tooltip {
   @apply relative inline-block
