@@ -23,3 +23,16 @@ h4 {
 label {
   @apply whitespace-pre-wrap
 }
+i-feather {
+  @apply !w-4 !h-4
+}
+
+.tooltip {
+  @apply relative inline-block
+}
+.tooltip:hover .tooltiptext {
+  @apply visible
+}
+.tooltiptext {
+  @apply absolute text-sm ml-1 bg-secondary text-white px-2 py-0.5 rounded-md invisible
+}

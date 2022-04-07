@@ -1,7 +1,39 @@
-![alt text](https://raw.githubusercontent.com/ChillUpX/tectools/master/src/assets/header.png)
-
-TEC.TOOLS is a collection of tools that everyone working in IT could make use of. TEC.TOOLS aims to
-provide lots of different tools on one page, so that only one bookmark is needed and not one for every tool.
+<div align="center">
+  <!-- Badges -->
+  <p>
+    <a href="https://github.com/tectools/tectools/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/tectools/tectools" alt="contributors"></img>
+    </a>
+    <a href="">
+      <img src="https://img.shields.io/github/last-commit/tectools/tectools" alt="last update"></img>
+    </a>
+    <a href="https://github.com/tectools/tectools/issues/">
+      <img src="https://img.shields.io/github/issues/tectools/tectools" alt="open issues"></img>
+    </a>
+    <a href="https://github.com/tectools/tectools/blob/master/LICENSE">
+      <img src="https://img.shields.io/github/license/tectools/tectools.svg" alt="license"></img>
+    </a>
+    <a href="https://github.com/tectools/tectools/network/members">
+      <img src="https://img.shields.io/github/forks/tectools/tectools?style=social" alt="forks"></img>
+    </a>
+    <a href="https://github.com/tectools/tectools/stargazers">
+      <img src="https://img.shields.io/github/stars/tectools/tectools?style=social" alt="stars"></img>
+    </a>
+  </p>
+  <br></br>
+  <img src="https://raw.githubusercontent.com/ChillUpX/tectools/master/src/assets/header.png" alt="TEC.TOOLS LOGO"></img> 
+  <br></br>
+  <p>
+    TEC.TOOLS is a collection of tools that everyone working in IT could make use of. TEC.TOOLS aims to
+    provide lots of different tools on one page, so that only one bookmark is needed and not one for every tool.
+  </p>
+  <h3>
+    <a href="https://tec.tools/">Try TEC.TOOLS yourself</a><span> · </span>
+    <a>Contribute</a><span> · </span>
+    <a href="https://github.com/tectools/tectools/issues/new?assignees=&labels=idea&template=idea-template.md&title=%5BIDEA%5D">Submit Tool Ideas</a>
+  </h3>
+  <br></br>
+</div>
 
 ## Development
 TEC.TOOLS is an angular application. For local testing just clone the repo, setupthe dependencies and start local development.
@@ -53,7 +85,7 @@ If a tool sends data to any external service, this should be marked. Info about 
 
 ### 3. Reusable components
 I tried to define several reusable components inside `src/app/components` which should help create new tools.
-One mandatory component is `<tec-tool-head>`, which is responsible for showing the tool's details on the head of the page. 
+One mandatory component is `<tec-tool-head>`, which is responsible for showing the tool's details on the head of the page.
 For usage examples you can skim through existing tools. :-)
 
 ## License

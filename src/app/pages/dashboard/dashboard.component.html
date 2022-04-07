@@ -1,40 +1,40 @@
-<div *ngIf="this.starred.length > 0">
-  <div class="uppercase font-medium flex justify-between items-end border-b border-secondary/5 pb-1">
+<div *ngIf="this.bookmarked.length > 0">
+  <div class="uppercase font-medium flex justify-between items-end">
     <div class="text-primary/40 ">
-      Starred
+      Bookmarked
     </div>
     <div>
-      <button (click)="unstarAll()" class="btn-sm">Remove all stars</button>
+      <button (click)="unbookmarkAll()">Remove all stars</button>
     </div>
   </div>
   <div
     [ngTemplateOutlet]="toolsDisplay"
-    [ngTemplateOutletContext]="{tools:this.filterStarredTools(), starred:true}"
+    [ngTemplateOutletContext]="{tools:this.filterBookmarkedTools(), bookmarker:true}"
   ></div>
 </div>
-<div *ngFor="let coll of filterUnstarredToolsByCollection() | keyvalue" class="mt-5">
-  <div class="uppercase font-medium text-primary/40 border-b border-secondary/5 pb-0.5">
+<div *ngFor="let coll of filterNonBookmarkedToolsByCollection() | keyvalue" class="mt-5">
+  <div class="uppercase font-medium text-primary/40">
     {{coll.key}}
   </div>
   <div
     [ngTemplateOutlet]="toolsDisplay"
-    [ngTemplateOutletContext]="{tools:coll.value, starred:false}"
+    [ngTemplateOutletContext]="{tools:coll.value, bookmarker:false}"
   ></div>
 </div>
 
-<ng-template #toolsDisplay let-tools="tools" let-starred="starred">
+<ng-template #toolsDisplay let-tools="tools" let-bookmarker="bookmarker">
   <div class="mt-2 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 auto-rows-fr">
     <div *ngFor="let tool of tools" class="border border-gray rounded hover:cursor-pointer hover:bg-gray-50" [routerLink]="tool.path">
       <div class="relative">
-        <div class="absolute top-2 right-2 text-xs flex">
-          <div *ngIf="starred">
-            <i-feather name="star" class="text-amber-500/90 cursor-pointer mt-0.5 mr-2" style="fill: #fbbf24;"></i-feather>
+        <div class="absolute w-full top-0 right-0 text-xs flex justify-between">
+          <div class="-mb-2 p-1 flex">
+            <i-feather *ngIf="bookmarker" name="bookmark" class="text-gray-400/60 cursor-pointer !w-5 !h-5 mr-1" style=""></i-feather>
+            <i-feather *ngIf="tool.externalDataProcessors.length > 0" name="upload-cloud" class="text-gray-400/60 !w-5 !h-5"></i-feather>
           </div>
-          <div class="mr-2 rounded-lg px-2 text-orange-800/50 border border-orange-800/20" *ngIf="tool.externalDataProcessors.length > 0">
-            Uses external API
-          </div>
-          <div class="border border-secondary text-secondary px-1 rounded-lg font-mono uppercase">
-            {{tool.category}}
+          <div class="flex p-1.5">
+            <div class="border border-secondary text-secondary px-1 rounded-lg font-mono uppercase">
+              {{tool.category}}
+            </div>
           </div>
         </div>
       </div>

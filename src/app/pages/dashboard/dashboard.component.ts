@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {ToolData} from "../../model/tool-data";
-import {ToolCategory} from "../../model/tool-category";
-import {StarService} from "../../services/star.service";
+import {BookmarkService} from "../../services/bookmark.service";
 import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
@@ -10,18 +9,13 @@ import {ToolCollection} from "../../model/tool-collection";
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.sass']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-  public allCategories = Object.values(ToolCategory).sort((a, b) => {
-    if(a < b) { return -1; }
-    if(a > b) { return 1; }
-    return 0;
-  });
   public tools: ToolData[] = [];
 
-  starred: string[];
+  bookmarked: string[];
 
-  constructor(private router: Router, private star: StarService) {
+  constructor(private router: Router, private star: BookmarkService) {
     // Get all tools by registered routes
     router.config.forEach((route) => {
       if(route.data && route.data instanceof ToolData) {
@@ -29,21 +23,21 @@ export class DashboardComponent implements OnInit {
       }
     });
 
-    this.starred = star.getStarred();
+    this.bookmarked = star.getBookmarked();
   }
 
-  filterStarredTools() : ToolData[] {
-    return this.tools.filter((t: ToolData) => this.starred.indexOf(t.path) > -1);
+  filterBookmarkedTools() : ToolData[] {
+    return this.tools.filter((t: ToolData) => this.bookmarked.indexOf(t.path) > -1);
   }
 
-  filterUnstarredTools() : ToolData[] {
-    return this.tools.filter((t: ToolData) => this.starred.indexOf(t.path) === -1);
+  filterNonBookmarkedTools() : ToolData[] {
+    return this.tools.filter((t: ToolData) => this.bookmarked.indexOf(t.path) === -1);
   }
 
-  filterUnstarredToolsByCollection() : Map<string, ToolData[]> {
+  filterNonBookmarkedToolsByCollection() : Map<string, ToolData[]> {
     let tools = new Map<string, ToolData[]>();
     for(let collection of Object.values(ToolCollection)) {
-      let toolsInCollection = this.filterUnstarredTools().filter((t: ToolData) => t.collection === collection);
+      let toolsInCollection = this.filterNonBookmarkedTools().filter((t: ToolData) => t.collection === collection);
       if(toolsInCollection.length > 0) {
         tools.set(collection, toolsInCollection);
       }
@@ -51,11 +45,8 @@ export class DashboardComponent implements OnInit {
     return tools;
   }
 
-  ngOnInit(): void {
-  }
-
-  unstarAll() {
-    this.star.unstarAll();
+  unbookmarkAll() {
+    this.star.unbookmarkAll();
     window.location.reload();
   }
 }
