@@ -20,6 +20,7 @@
       <img src="https://img.shields.io/github/stars/tectools/tectools?style=social" alt="stars"></img>
     </a>
   </p>
+  <br></br>
   <img src="https://raw.githubusercontent.com/ChillUpX/tectools/master/src/assets/header.png" alt="TEC.TOOLS LOGO"></img> 
   <br></br>
   <p>
