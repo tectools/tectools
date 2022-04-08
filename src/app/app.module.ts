@@ -17,13 +17,11 @@ import {HttpClientModule} from "@angular/common/http";
 import {GeneratorSimpleComponent} from './components/generator-simple/generator-simple.component';
 import {EncoderBidirectionalComponent} from './components/encoder-bidirectional/encoder-bidirectional.component';
 import {URLEncodeComponent} from './tools/urlencode/urlencode.component';
-import {ChangelogComponent} from './pages/changelog/changelog.component';
 import {ToolDataService} from "./services/tool-data.service";
 import {URLQueryParserComponent} from './tools/urlquery-parser/urlquery-parser.component';
 import {EncoderTwoInOneOutComponent} from './components/encoder-two-in-one-out/encoder-two-in-one-out.component';
 import {EncoderOneInMultiOutComponent} from './components/encoder-one-in-multi-out/encoder-one-in-multi-out.component';
 import {MyIPComponent} from './tools/my-ip/my-ip.component';
-import {ApiComponent} from './pages/api/api.component';
 import {RandompasswordComponent} from './tools/randompassword/randompassword.component';
 import {CookieService} from "ngx-cookie-service";
 
@@ -47,12 +45,10 @@ export function initializeApp(toolDataService: ToolDataService) {
     GeneratorSimpleComponent,
     EncoderBidirectionalComponent,
     URLEncodeComponent,
-    ChangelogComponent,
     URLQueryParserComponent,
     EncoderTwoInOneOutComponent,
     EncoderOneInMultiOutComponent,
     MyIPComponent,
-    ApiComponent,
     RandompasswordComponent
   ],
   imports: [
