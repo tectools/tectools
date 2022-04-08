@@ -12,23 +12,3 @@ html, body, div, p
 .icon-sm
   width: 1em !important
   height: 1em !important
-
-a
-  text-decoration: none
-  white-space: nowrap
-  border-bottom: 1px dotted theme("colors.primary")
-  &:hover
-    border-bottom: 1px dotted rgba(black, 0)
-    color: theme("colors.secondary")
-    &:before
-      background-color: theme("colors.secondary")
-  &:before
-    content: ""
-    display: inline-block
-    width: 0.85em
-    height: 0.85em
-    margin-right: 0.125em
-    mask-image: url("assets/external-link.svg")
-    mask-size: 0.85em 0.85em
-    mask-repeat: no-repeat
-    background-color: theme("colors.primary")

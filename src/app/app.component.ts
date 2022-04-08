@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {openNewTab} from "./services/clipboard.service";
 
 @Component({
   selector: 'app-root',
@@ -8,4 +9,5 @@ import {Component} from '@angular/core';
 export class AppComponent {
   title = 'TEC.TOOLS';
 
+  openNewTab = openNewTab;
 }
