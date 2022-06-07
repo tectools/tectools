@@ -12,11 +12,27 @@ input:read-only, select:read-only, textarea:read-only {
   @apply bg-gray-50
 }
 button {
-  @apply border border-secondary p-1 rounded text-secondary px-2 bg-secondary text-white hover:bg-secondary/90 hover:border-secondary/90 active:bg-secondary/80
+  @apply border border-secondary py-1 rounded px-2 bg-secondary text-white hover:bg-secondary/90 hover:border-secondary/90 active:bg-secondary/80
+}
+.btn-sm {
+  @apply py-0.5 text-sm
 }
 h4 {
   @apply text-lg
 }
 label {
   @apply whitespace-pre-wrap
+}
+i-feather {
+  @apply !w-4 !h-4
+}
+
+.tooltip {
+  @apply relative inline-block
+}
+.tooltip:hover .tooltiptext {
+  @apply visible
+}
+.tooltiptext {
+  @apply absolute text-sm ml-1 bg-secondary text-white px-2 py-0.5 rounded-md invisible
 }

@@ -4,6 +4,7 @@ import {ToolCategory} from "../../model/tool-category";
 import {ExternalDataProcessor} from "../../model/external-data-processor";
 import {ClipboardService} from "../../services/clipboard.service";
 import {v4 as uuid} from "uuid";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-randompassword',
@@ -12,6 +13,7 @@ import {v4 as uuid} from "uuid";
 })
 @Tool(
   "Random Password",
+  ToolCollection.GENERAL,
   ToolCategory.WEB,
   ["Password"],
   "shield",

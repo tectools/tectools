@@ -5,6 +5,7 @@ import {Router} from "@angular/router";
 import {ToolCategory} from "../../model/tool-category";
 import {ExternalDataProcessor} from "../../model/external-data-processor";
 import {Tool} from "../../services/tool-data.service";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-dns',
@@ -13,12 +14,17 @@ import {Tool} from "../../services/tool-data.service";
 })
 @Tool(
   "DNS",
+  ToolCollection.GENERAL,
   ToolCategory.WEB,
   ["DNS"],
   "database",
   "Run dns queries (A, AAAA, MX, SRV, PTR, ...)",
   [
-    new ExternalDataProcessor("dns.google", "https://dns.google/")
+    new ExternalDataProcessor(
+      "dns.google",
+      "https://dns.google/",
+      "https://developers.google.com/speed/public-dns/privacy",
+      "https://developers.google.com/speed/public-dns/terms")
   ]
 )
 export class DnsComponent implements OnInit {

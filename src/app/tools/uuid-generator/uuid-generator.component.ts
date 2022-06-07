@@ -3,6 +3,7 @@ import {v4 as uuid} from "uuid";
 import {ClipboardService} from "../../services/clipboard.service";
 import {ToolCategory} from "../../model/tool-category";
 import {Tool} from "../../services/tool-data.service";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-uuid-generator',
@@ -11,6 +12,7 @@ import {Tool} from "../../services/tool-data.service";
 })
 @Tool(
   "UUIDv4",
+  ToolCollection.GENERAL,
   ToolCategory.GENERATOR,
   ["ID", "unique"],
   "settings",

@@ -1,26 +1,57 @@
-<div class="mt-5 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 auto-rows-fr">
-  <div *ngFor="let tool of tools" class="border border-gray rounded hover:cursor-pointer hover:bg-gray-50" [routerLink]="tool.path">
-    <div class="relative">
-      <div class="absolute top-2 right-2 text-xs flex">
-        <div class="mr-2 rounded-lg px-2 text-orange-800/50 border border-orange-800/20" *ngIf="tool.externalDataProcessors.length > 0">
-          Uses external API
-        </div>
-        <div class="border border-secondary text-secondary px-1 rounded-lg font-mono uppercase">
-          {{tool.category}}
+<!-- Show bookmarked tools -->
+<div *ngIf="this.bookmarked.length > 0">
+  <div class="uppercase font-medium flex justify-between items-end">
+    <div class="text-primary/40 font-mono font-bold">
+      Bookmarked
+    </div>
+    <div>
+      <button (click)="unbookmarkAll()" class="btn-sm">Remove all <i-feather name="bookmark" class="text-white cursor-pointer !w-5 !h-5 !fill-secondary -mb-1" style=""></i-feather></button>
+    </div>
+  </div>
+  <div
+    [ngTemplateOutlet]="toolsDisplay"
+    [ngTemplateOutletContext]="{tools:this.filterBookmarkedTools()}"
+  ></div>
+</div>
+<!-- show all other tools -->
+<div *ngFor="let coll of filterNonBookmarkedToolsByCollection() | keyvalue" class="mt-5">
+  <div class="uppercase text-primary/40  font-mono font-bold">
+    {{coll.key}}
+  </div>
+  <div
+    [ngTemplateOutlet]="toolsDisplay"
+    [ngTemplateOutletContext]="{tools:coll.value}"
+  ></div>
+</div>
+
+<!-- template for displaying tools -->
+<ng-template #toolsDisplay let-tools="tools">
+  <div class="mt-2 grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-5 auto-rows-fr">
+    <div *ngFor="let tool of tools" class="border border-gray rounded hover:cursor-pointer hover:bg-gray-50" [routerLink]="tool.path">
+      <div class="relative">
+        <div class="absolute w-full top-0 right-0 text-xs flex justify-between">
+          <div class="-mb-2 p-1 flex">
+            <i-feather *ngIf="tool.externalDataProcessors.length > 0" name="upload-cloud" class="text-gray-400/60 !w-5 !h-5"></i-feather>
+          </div>
+          <div class="flex p-1.5">
+            <div class="border border-gray text-gray-400 px-1 rounded-lg font-mono uppercase">
+              {{tool.category}}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="h-full grid grid-cols-auto-1 items-center px-2 py-4">
-      <i-feather [name]="tool.icon" class="icon-lg text-secondary m-3"></i-feather>
-      <div class="ml-2">
-        <div class="text-primary/90 text-2xl font-medium">
-          {{tool.title}}
-        </div>
-        <div class="text-sm leading-4 pb-1.5 mt-1 pr-2 text-primary/60">
-          {{tool.description}}
+      <div class="h-full grid grid-cols-auto-1 items-center px-2 py-4">
+        <i-feather [name]="tool.icon" class="icon-lg text-secondary m-3"></i-feather>
+        <div class="ml-2">
+          <div class="text-primary/90 text-2xl font-medium">
+            {{tool.title}}
+          </div>
+          <div class="text-sm leading-4 pb-1.5 mt-1 pr-2 text-primary/60">
+            {{tool.description}}
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</ng-template>
 

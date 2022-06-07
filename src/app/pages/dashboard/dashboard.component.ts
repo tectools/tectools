@@ -1,72 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from "@angular/router";
 import {ToolData} from "../../model/tool-data";
-import {ToolCategory} from "../../model/tool-category";
+import {BookmarkService} from "../../services/bookmark.service";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.sass']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
 
-  public allCategories = Object.values(ToolCategory).sort((a, b) => {
-    if(a < b) { return -1; }
-    if(a > b) { return 1; }
-    return 0;
-  });
-  private allTools: ToolData[] = [];
   public tools: ToolData[] = [];
 
-  constructor(private router: Router) {
+  bookmarked: string[];
+
+  constructor(private router: Router, private star: BookmarkService) {
+    // Get all tools by registered routes
     router.config.forEach((route) => {
-      if(route.data) {
-        this.allTools.push(<ToolData> route.data);
+      if(route.data && route.data instanceof ToolData) {
+        this.tools.push(<ToolData> route.data);
       }
     });
-    this.tools = this.allTools;
+
+    this.bookmarked = star.getBookmarked();
   }
 
-  ngOnInit(): void {
+  filterBookmarkedTools() : ToolData[] {
+    return this.tools.filter((t: ToolData) => this.bookmarked.indexOf(t.path) > -1);
   }
 
-  search(value: string) {
-    value = value.trim();
-    value = value.toLowerCase();
-
-    if(value == "") {
-      this.tools = this.allTools;
-      return;
-    }
-
-    console.log("Search for " + value);
-    this.tools = this.allTools.filter((data) => {
-        return (
-            data.tags.filter(
-              (tag) => {
-                return tag.toLowerCase().includes(value);
-              }).length > 0
-          ||
-            data.category.toLowerCase().includes(value)
-          ||
-            data.title.split(" ").filter(
-              (titlePart) => {
-                return titlePart.toLowerCase().includes(value);
-              }
-            ).length > 0
-        );
-    });
-    console.log(this.tools);
+  filterNonBookmarkedTools() : ToolData[] {
+    return this.tools.filter((t: ToolData) => this.bookmarked.indexOf(t.path) === -1);
   }
 
-  filterCategory(searchbar:any, target: EventTarget|null) {
-    if(target && target instanceof HTMLSpanElement && target.textContent) {
-      let content = target.textContent.trim()
-      if(content == 'All Categories') {
-        content = '';
+  filterNonBookmarkedToolsByCollection() : Map<string, ToolData[]> {
+    let tools = new Map<string, ToolData[]>();
+    for(let collection of Object.values(ToolCollection)) {
+      let toolsInCollection = this.filterNonBookmarkedTools().filter((t: ToolData) => t.collection === collection);
+      if(toolsInCollection.length > 0) {
+        tools.set(collection, toolsInCollection);
       }
-      searchbar.value = content;
-      this.search(content);
     }
+    return tools;
+  }
+
+  unbookmarkAll() {
+    this.star.unbookmarkAll();
+    window.location.reload();
   }
 }

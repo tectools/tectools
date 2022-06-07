@@ -17,3 +17,6 @@ export class ClipboardService {
     window.navigator.clipboard.writeText(filter(val));
   }
 }
+export function openNewTab(to: string) {
+  window.open(to, '_blank');
+}

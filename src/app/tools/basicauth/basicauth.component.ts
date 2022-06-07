@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {ToolCategory} from "../../model/tool-category";
 import {Tool} from "../../services/tool-data.service";
+import {ToolCollection} from "../../model/tool-collection";
 
 @Component({
   selector: 'app-basicauth',
@@ -9,6 +10,7 @@ import {Tool} from "../../services/tool-data.service";
 })
 @Tool(
   "Basic Auth",
+  ToolCollection.GENERAL,
   ToolCategory.ENCODE_DECODE,
   ["BasicAuth", "htpasswd", "Base64"],
   "shuffle",

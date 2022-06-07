@@ -1,43 +1,63 @@
-<div class="md:px-3 pb-3 border-b border-gray grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3" *ngIf="data">
-  <div class="flex items-center">
-    <i-feather [name]="data.icon" class="text-secondary mt-1 icon-lg"></i-feather>
-    <div class="ml-4">
-      <div class="text-2xl font-medium text-primary/90">
-        {{data.title}}
-      </div>
-      <div class="text-primary/50 text-sm">
-        {{data.description}}
-      </div>
-    </div>
-  </div>
-  <div class="md:ml-auto order-2 md:order-none border border-primary/10 text-xs w-full lg:w-fit xl:m-auto py-2 px-4 rounded">
-    <div
-      class="flex items-center lg:w-fit"
-      *ngIf="data.externalDataProcessors && data.externalDataProcessors.length > 0; else noExternalProcessors;"
-    >
-      <div class="mr-4">
-        <i-feather class="text-orange-400 icon-md" name="upload-cloud"></i-feather>
-      </div>
-      <div class="text-primary/50 py-1">
-        This tool will process data outside of your local browser using following services:
-          <span *ngFor="let ep of data.externalDataProcessors" class="external-processor mr-2 text-primary/80">
-            <a href="{{ep.url}}">{{ep.name}}</a>
-          </span>
-      </div>
-    </div>
-    <ng-template #noExternalProcessors>
-      <div class="flex items-center lg:w-fit">
-        <div class="mr-3">
-          <i-feather class="text-lime-400/90 mt-0.5 icon-md" name="cloud-off"></i-feather>
+<div *ngIf="data" class="border-b border-gray pb-3">
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 items-center gap-3">
+    <div class="flex items-center">
+      <i-feather [name]="data.icon" class="text-secondary mt-1 icon-lg"></i-feather>
+      <div class="ml-4">
+        <div class="text-primary/90 flex flex-row items-center">
+          <div class="text-2xl font-medium ">
+            {{data.title}}
+          </div>
+          <div>
+            <div class="w-fit flex flex-row items-center px-2 ml-1 rounded-2xl p-0 text-md text-primary/90 select-none" (click)="switchBookmarked()">
+              <ng-template [ngIf]="!(isBookmarked | async)">
+                <div class="tooltip -mb-2">
+                  <i-feather name="bookmark" class="text-primary/90 cursor-pointer !w-6 !h-6 hover:text-primary/60"></i-feather>
+                  <span class="tooltiptext">
+                    Bookmark!
+                  </span>
+                </div>
+              </ng-template>
+              <ng-template [ngIf]="(isBookmarked | async)">
+                <i-feather name="bookmark" class="text-secondary cursor-pointer !w-6 !h-6 !fill-secondary" style=""></i-feather>
+              </ng-template>
+            </div>
+          </div>
         </div>
-        <div class="text-primary/50">
-          This tool works locally. No data will be sent to any server.
+        <div class="text-primary/50 text-sm">
+          {{data.description}}
         </div>
       </div>
-    </ng-template>
+    </div>
+    <div class="md:ml-auto order-2 md:order-none text-xs w-full lg:w-fit xl:m-auto">
+      <div
+        *ngIf="!data.externalDataProcessors || data.externalDataProcessors.length == 0"
+        class="border border-primary/10 py-2 px-4 rounded"
+      >
+        <div class="flex items-center lg:w-fit">
+          <div class="mr-3">
+            <i-feather class="text-lime-400/90 mt-0.5 icon-md" name="cloud-off"></i-feather>
+          </div>
+          <div class="text-primary/50">
+            This tool works locally. No data will be sent to any server.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="xl:text-right text-xs uppercase">
+      <span class="border border-secondary rounded px-2 py-1 font-medium text-secondary">{{data.category}}</span>
+      <span class="border border-primary/50 rounded px-2 py-1 text-primary/50 ml-1 " *ngFor="let tag of data.tags">{{tag}}</span>
+    </div>
   </div>
-  <div class="xl:text-right text-xs uppercase">
-    <span class="border border-secondary rounded px-2 py-1 font-medium text-secondary">{{data.category}}</span>
-    <span class="border border-primary/50 rounded px-2 py-1 text-primary/50 ml-1 " *ngFor="let tag of data.tags">{{tag}}</span>
+  <!-- TODO: Design -->
+  <div
+    *ngIf="data.externalDataProcessors && data.externalDataProcessors.length > 0"
+    class="border border-primary/10 rounded mx-2 my-3 mb-0"
+  >
+    <div class="flex flex-row items-center hover:bg-primary/10 hover:cursor-pointer py-1 text-primary/60 select-none">
+      <i-feather class="ml-3 mt-0.5 icon-sm text-amber-400" name="upload-cloud"></i-feather>
+      <div class="ml-2 text-primary/60">
+        This tool uses external services which might process entered data.
+      </div>
+    </div>
   </div>
 </div>
